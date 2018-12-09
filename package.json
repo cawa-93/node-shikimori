@@ -17,5 +17,9 @@
   "license": "MIT",
   "dependencies": {
     "request": "^2.79.0"
+  },
+  "devDependencies": {
+    "@types/node": "^10.12.12",
+    "typescript": "^3.2.2"
   }
 }
