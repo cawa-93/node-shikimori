@@ -121,4 +121,37 @@ export declare namespace mangas {
 
     type response = responseItem[]
   }
+
+  /** @see https://shikimori.org/api/doc/1.0/mangas/franchise */
+  namespace franchise {
+    namespace index {
+      interface link {
+        source_id: number
+        target_id: number
+        source: number
+        target: number
+        weight: number
+        relation: string
+      }
+
+      interface node {
+        id: number
+        date: number
+        name: string
+        image_url: string
+        url: string
+        year: number | null
+        kind: string
+        weight: number
+      }
+
+      interface responseItem {
+        links: link[]
+        nodes: node[]
+        current_id: number
+      }
+
+      type response = responseItem[]
+    }
+  }
 }
