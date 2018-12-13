@@ -1,3 +1,5 @@
+import { animes } from "../animes";
+
 export declare interface PaginatedRequest {
   page?: number,
   limit?: number,
@@ -24,4 +26,12 @@ export declare interface AnimeGenre {
 
 export declare interface MangaGenre {
   kind: "manga"
+}
+
+
+export declare interface RelationItem {
+  relation: string
+  relation_russian: string
+  anime: animes.index.responseItem | null
+  manga: mangas.index.responseItem | null
 }
