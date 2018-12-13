@@ -154,4 +154,19 @@ export declare namespace mangas {
       type response = responseItem[]
     }
   }
+
+  /** @see https://shikimori.org/api/doc/1.0/mangas/external_links */
+  namespace external_links {
+    interface responseItem {
+      id: number
+      kind: string
+      url: string
+      source: string
+      entry_id: number
+      entry_type: 'Manga'
+      created_at: string
+      updated_at: string
+      imported_at: string | null
+    }
+  }
 }

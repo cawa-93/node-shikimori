@@ -219,7 +219,7 @@ export declare namespace animes {
       url: string
       source: string
       entry_id: number
-      entry_type: 'Anime' | 'Manga'
+      entry_type: 'Anime'
       created_at: string
       updated_at: string
       imported_at: string | null
