@@ -21,7 +21,7 @@ import { Shikimori } from '../src/Shikimori.class'
 
 // create aliases
 import requestType = types.animes.index.request
-import responseType = types.animes.index.request
+import responseType = types.animes.index.response
 
 const client = new Shikimori()
 
