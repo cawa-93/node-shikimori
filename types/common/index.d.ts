@@ -19,11 +19,11 @@ export declare interface Genre {
   kind: 'anime' | 'manga'
 }
 
-export declare interface AnimeGenre {
+export declare interface AnimeGenre extends Genre {
   kind: 'anime'
 }
 
-export declare interface MangaGenre {
+export declare interface MangaGenre extends Genre {
   kind: 'manga'
 }
 
