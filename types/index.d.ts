@@ -1,0 +1,5 @@
+export { animes as animes } from './animes'
+export { characters as characters } from './characters'
+export { people as people } from './people'
+export { studios as studios } from './studios'
+export { user_rates as user_rates } from './user_rates'

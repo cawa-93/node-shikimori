@@ -5,7 +5,12 @@ import { characters } from '../characters'
 import { people } from '../people'
 
 export declare namespace animes {
-  /** @see https://shikimori.org/api/doc/1.0/animes/index  */
+
+  /** 
+   * GET /animes
+   * @description List animes
+   * @see https://shikimori.org/api/doc/1.0/animes/index
+   */
   namespace index {
     type order =
       | 'id'
