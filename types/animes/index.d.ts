@@ -128,6 +128,7 @@ export declare namespace animes {
 
 
 
+  /** @see https://shikimori.org/api/doc/1.0/animes/roles  */
   namespace roles {
     interface responseItem {
       roles: string[]
@@ -137,5 +138,12 @@ export declare namespace animes {
     }
 
     type response = responseItem[]
+  }
+
+
+  /** @see https://shikimori.org/api/doc/1.0/animes/similar  */
+
+  namespace similar {
+    type response = index.responseItem[]
   }
 }
