@@ -87,11 +87,6 @@ export declare namespace animes {
       hosting: string
     }
 
-    interface Screenshot {
-      original: string
-      preview: string
-    }
-
     interface animeUserRate extends user_rates.show.response {
       target_type: "Anime"
     }
@@ -120,7 +115,7 @@ export declare namespace animes {
       genres: AnimeGenre[],
       studios: studios.responseItem[],
       videos: Video[],
-      screenshots: Screenshot[],
+      screenshots: screenshots.response,
       user_rate: animeUserRate | null
     }
 
@@ -141,16 +136,29 @@ export declare namespace animes {
   }
 
 
+
   /** @see https://shikimori.org/api/doc/1.0/animes/similar  */
   namespace similar {
     type response = index.responseItem[]
   }
+
+
 
   /** @see https://shikimori.org/api/doc/1.0/animes/related  */
   namespace related {
     interface responseItem extends RelationItem {
       anime: index.responseItem
       manga: null
+    }
+
+    type response = responseItem[]
+  }
+
+
+  namespace screenshots {
+    interface responseItem {
+      original: string
+      preview: string
     }
 
     type response = responseItem[]
