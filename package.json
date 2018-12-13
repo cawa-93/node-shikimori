@@ -1,10 +1,13 @@
 {
   "name": "node-shikimori",
-  "version": "1.0.2",
+  "version": "2.0.0",
   "description": "A node.js wrapper for the http://shikimori.org API",
-  "main": "index.js",
+  "main": "lib/index",
+  "types": "lib/index",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npm run build:live",
+    "build": "tsc -p .",
+    "build:live": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/index.ts"
   },
   "repository": {
     "type": "git",
@@ -16,10 +19,14 @@
   "author": "Capster <m6277@me.com>",
   "license": "MIT",
   "dependencies": {
+    "axios": "^0.18.0",
     "request": "^2.79.0"
   },
   "devDependencies": {
     "@types/node": "^10.12.12",
+    "@types/request": "^2.48.1",
+    "nodemon": "^1.18.7",
+    "ts-node": "^7.0.1",
     "typescript": "^3.2.2"
   }
 }
