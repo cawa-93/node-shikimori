@@ -4,41 +4,41 @@ import * as types from "../types/types"
 
 export class Shikimori {
 
-  axios: AxiosInstance
+  public axios: AxiosInstance
 
-  constructor () {
+  constructor() {
     this.axios = axios.create({
       baseURL: 'https://shikimori.org/api/',
       headers: {
-        'User-Agent': 'node-shikimori-v2'
-      }
+        'User-Agent': 'node-shikimori-v2',
+      },
     })
   }
 
-  request<T = any>(config: AxiosRequestConfig) {
+  public request<T = any>(config: AxiosRequestConfig) {
     return this.axios.request<T>(config)
   }
-  get<T = types.ResponseAnime>(url: string, config?: AxiosRequestConfig | undefined) {
+  public get<T = types.ResponseAnime>(url: string, config?: AxiosRequestConfig | undefined) {
     return this.axios.get<T>(url, config)
   }
-  delete(url: string, config?: AxiosRequestConfig | undefined) {
+  public delete(url: string, config?: AxiosRequestConfig | undefined) {
     return this.axios.delete(url, config)
   }
-  head(url: string, config?: AxiosRequestConfig | undefined) {
+  public head(url: string, config?: AxiosRequestConfig | undefined) {
     return this.axios.head(url, config)
   }
-  post<T = any>(url: string, data?: any, config?: AxiosRequestConfig | undefined) {
+  public post<T = any>(url: string, data?: any, config?: AxiosRequestConfig | undefined) {
     return this.axios.post<T>(url, data, config)
   }
-  put<T = any>(url: string, data?: any, config?: AxiosRequestConfig | undefined) {
+  public put<T = any>(url: string, data?: any, config?: AxiosRequestConfig | undefined) {
     return this.axios.put<T>(url, data, config)
   }
-  patch<T = any>(url: string, data?: any, config?: AxiosRequestConfig | undefined) {
+  public patch<T = any>(url: string, data?: any, config?: AxiosRequestConfig | undefined) {
     return this.axios.patch<T>(url, data, config)
   }
 
   // TODO: Write Auth mathod
-  auth() : boolean {
-    return false;
+  public auth(): boolean {
+    return false
   }
 }

@@ -1,34 +1,48 @@
-import { PaginatedRequest, Poster, AnimeGenre, RelationItem } from "../common";
-import { studios } from "../studios";
-import { user_rates } from "../user_rates";
-import { characters } from "../characters";
-import { people } from "../people";
+import { PaginatedRequest, Poster, AnimeGenre, RelationItem } from '../common'
+import { studios } from '../studios'
+import { user_rates } from '../user_rates'
+import { characters } from '../characters'
+import { people } from '../people'
 
 export declare namespace animes {
-
-
-
   /** @see https://shikimori.org/api/doc/1.0/animes/index  */
   namespace index {
+    type order =
+      | 'id'
+      | 'ranked'
+      | 'kind'
+      | 'popularity'
+      | 'name'
+      | 'aired_on'
+      | 'episodes'
+      | 'status'
+      | 'random'
 
-    type order = "id" | "ranked" | "kind" | "popularity" | "name" | "aired_on" | "episodes" | "status" | "random"
-    
-    type kind = "tv" | "movie" | "ova" | "ona" | "special" | "music" | "tv_13" | "tv_24" | "tv_48"
+    type kind =
+      | 'tv'
+      | 'movie'
+      | 'ova'
+      | 'ona'
+      | 'special'
+      | 'music'
+      | 'tv_13'
+      | 'tv_24'
+      | 'tv_48'
 
-    type status = "anons" | "ongoing" | "released"
+    type status = 'anons' | 'ongoing' | 'released'
 
-    type duration = "S" | "D" | "F"
+    type duration = 'S' | 'D' | 'F'
 
-    type rating = "none" | "g" | "pg" | "r" | "r_plus" | "rx"
+    type rating = 'none' | 'g' | 'pg' | 'r' | 'r_plus' | 'rx'
 
     interface request extends PaginatedRequest {
       order?: order
       kind?: kind
       status?: status
       season?: string
-      score?: number,
-      duration?: duration,
-      rating?: rating,
+      score?: number
+      duration?: duration
+      rating?: rating
       genre?: number[]
       studio?: number[]
       franchise?: number[]
@@ -56,43 +70,45 @@ export declare namespace animes {
     type response = responseItem[]
   }
 
-
-
   /** @see https://shikimori.org/api/doc/1.0/animes/show  */
   namespace show {
-
     interface RateScoreItem {
-      name: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10,
+      name: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10
       value: number
     }
 
-    type RateStatusNames = "Запланировано" | "Смотрю" | "Просмотрено" | "Отложено" | "Брошено"
+    type RateStatusNames =
+      | 'Запланировано'
+      | 'Смотрю'
+      | 'Просмотрено'
+      | 'Отложено'
+      | 'Брошено'
 
     interface RateStatusItem {
-      name: RateStatusNames,
+      name: RateStatusNames
       value: number
     }
 
     /**
      * TODO: Rewrite `kind` property as Enum type
-     * kind property must be Enum. But allowed values are unknown;
+     * kind property must be Enum. But allowed values are unknown
      */
     interface Video {
-      id: number,
-      url: string,
-      image_url: string,
-      player_url: string,
-      name: string,
-      kind: string,
+      id: number
+      url: string
+      image_url: string
+      player_url: string
+      name: string
+      kind: string
       hosting: string
     }
 
     interface animeUserRate extends user_rates.show.response {
-      target_type: "Anime"
+      target_type: 'Anime'
     }
 
     interface response extends index.responseItem {
-      rating: index.rating,
+      rating: index.rating
       english: string[] | [null]
       japanese: string[] | [null]
       synonyms: string[]
@@ -102,26 +118,23 @@ export declare namespace animes {
       description_html: string
       description_source: string | null
       franchise: string
-      favoured: boolean,
-      anons: boolean,
-      ongoing: boolean,
-      thread_id: number,
-      topic_id: number,
-      myanimelist_id: number,
-      rates_scores_stats: RateScoreItem[],
-      rates_statuses_stats: RateStatusItem[],
-      updated_at: string | null,
-      next_episode_at: string | null,
-      genres: AnimeGenre[],
-      studios: studios.responseItem[],
-      videos: Video[],
-      screenshots: screenshots.response,
+      favoured: boolean
+      anons: boolean
+      ongoing: boolean
+      thread_id: number
+      topic_id: number
+      myanimelist_id: number
+      rates_scores_stats: RateScoreItem[]
+      rates_statuses_stats: RateStatusItem[]
+      updated_at: string | null
+      next_episode_at: string | null
+      genres: AnimeGenre[]
+      studios: studios.responseItem[]
+      videos: Video[]
+      screenshots: screenshots.response
       user_rate: animeUserRate | null
     }
-
   }
-
-
 
   /** @see https://shikimori.org/api/doc/1.0/animes/roles  */
   namespace roles {
@@ -135,14 +148,10 @@ export declare namespace animes {
     type response = responseItem[]
   }
 
-
-
   /** @see https://shikimori.org/api/doc/1.0/animes/similar  */
   namespace similar {
     type response = index.responseItem[]
   }
-
-
 
   /** @see https://shikimori.org/api/doc/1.0/animes/related  */
   namespace related {
@@ -154,7 +163,6 @@ export declare namespace animes {
     type response = responseItem[]
   }
 
-
   /** @see https://shikimori.org/api/doc/1.0/animes/screenshots */
   namespace screenshots {
     interface responseItem {
@@ -165,28 +173,26 @@ export declare namespace animes {
     type response = responseItem[]
   }
 
-
-
   /** @see https://shikimori.org/api/doc/1.0/animes/franchise */
   namespace franchise {
     namespace index {
       interface link {
-        source_id: number,
-        target_id: number,
-        source: number,
-        target: number,
-        weight: number,
+        source_id: number
+        target_id: number
+        source: number
+        target: number
+        weight: number
         relation: string
       }
 
       interface node {
-        id: number,
-        date: number,
-        name: string,
-        image_url: string,
-        url: string,
-        year: number | null,
-        kind: string,
+        id: number
+        date: number
+        name: string
+        image_url: string
+        url: string
+        year: number | null
+        kind: string
         weight: number
       }
 
@@ -200,20 +206,18 @@ export declare namespace animes {
     }
   }
 
-
   /** @see https://shikimori.org/api/doc/1.0/animes/external_links */
   namespace external_links {
     interface responseItem {
-      id: number,
-      kind: string,
-      url: string,
-      source: string,
-      entry_id: number,
-      entry_type: "Anime" | "Manga",
-      created_at: string,
-      updated_at: string,
+      id: number
+      kind: string
+      url: string
+      source: string
+      entry_id: number
+      entry_type: 'Anime' | 'Manga'
+      created_at: string
+      updated_at: string
       imported_at: string | null
     }
   }
-
 }

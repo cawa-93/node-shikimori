@@ -1,4 +1,4 @@
-import { animes } from "../animes";
+import { animes } from '../animes'
 
 export declare interface PaginatedRequest {
   page?: number,
@@ -12,26 +12,25 @@ export declare interface Poster {
   x48: string
 }
 
-
 export declare interface Genre {
   id: number,
   name: string,
   russian: string,
-  kind: "anime" | "manga"
+  kind: 'anime' | 'manga'
 }
 
 export declare interface AnimeGenre {
-  kind: "anime"
+  kind: 'anime'
 }
 
 export declare interface MangaGenre {
-  kind: "manga"
+  kind: 'manga'
 }
-
 
 export declare interface RelationItem {
   relation: string
   relation_russian: string
   anime: animes.index.responseItem | null
-  manga: mangas.index.responseItem | null
+  // Uncomment when mangas interface will be
+  // manga: mangas.index.responseItem | null
 }

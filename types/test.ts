@@ -1,9 +1,11 @@
-import { animes } from "./animes";
+import { animes } from './animes'
+import { Shikimori } from '../src/Shikimori.class'
 
+const client = new Shikimori()
 
-var a: animes.show.response
-
-
-if (a.user_rate !== null) {
-  a.user_rate.target_type = 'Manga'
+async function name() {
+  const params: animes.index.request = {}
+  const { data } = await client.get<animes.index.response>('animes', {
+    params,
+  })
 }
