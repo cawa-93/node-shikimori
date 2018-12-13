@@ -1,35 +1,12 @@
-# node-shikimori
-
-[![npm version](https://img.shields.io/npm/v/node-shikimori.svg)](https://www.npmjs.com/package/node-shikimori)
-[![npm dependencies](https://david-dm.org/capster/node-shikimori.svg)](https://david-dm.org/capster/node-shikimori)
-
-A Node.JS module, which provides an object oriented wrapper for the [Shikimori.org API](https://shikimori.org/api/doc/1.0).
-
-Pull requests are always very welcome.
-
-## Installation
-
-```sh
-$ npm install node-shikimori --save
-```
-
-## Example usage
+## Example usage with types
 
 ```js
-const options = {
-  nickname: 'your nickname',
-  password: 'your password' // or token: 'your token'
-};
+import {animes} from './types/animes'
+import { Shikimori } from './lib/Shikimori.class'
 
-// Also can be called without any options (without autentification)
-const shikimori = new Shikimori(options, (err, client) => {
-  if (err) throw new Error(err);
-  
-  client.get('animes', {limit: 10}, (err, animes, response) => {
-    let top10 = animes.map(anime => anime.name);
-    console.log(top10);
-  });
-  
-  client.post('messages/read_all', {type: 'news', frontend: false});
-});
+const client = new Shikimori()
+
+const params: animes.index.request = {}
+const { data } = await client.get<animes.index.response>('animes', {params})
+
 ```
