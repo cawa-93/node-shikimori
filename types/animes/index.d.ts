@@ -1,6 +1,8 @@
 import { PaginatedRequest, Poster, AnimeGenre } from "../common";
 import { studios } from "../studios";
 import { user_rates } from "../user_rates";
+import { characters } from "../characters";
+import { people } from "../people";
 
 export declare namespace animes {
 
@@ -122,5 +124,18 @@ export declare namespace animes {
       user_rate: animeUserRate | null
     }
 
+  }
+
+
+
+  namespace roles {
+    interface responseItem {
+      roles: string[]
+      roles_russian: string[]
+      character: characters.search.responseItem | null
+      person: people.search.responseItem | null
+    }
+
+    type response = responseItem[]
   }
 }
