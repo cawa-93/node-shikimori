@@ -106,4 +106,9 @@ export declare namespace mangas {
 
     type response = responseItem[]
   }
+
+  /** @see https://shikimori.org/api/doc/1.0/mangas/similar  */
+  namespace similar {
+    type response = index.responseItem[]
+  }
 }
