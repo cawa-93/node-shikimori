@@ -1,4 +1,4 @@
-import { PaginatedRequest, Poster, MangaGenre } from "../common"
+import { PaginatedRequest, Poster, MangaGenre, RelationItem } from "../common"
 import { user_rates } from "../user_rates"
 import { publishers } from "../publishers"
 import { characters } from "../characters"
@@ -110,5 +110,15 @@ export declare namespace mangas {
   /** @see https://shikimori.org/api/doc/1.0/mangas/similar  */
   namespace similar {
     type response = index.responseItem[]
+  }
+
+  /** @see https://shikimori.org/api/doc/1.0/mangas/related  */
+  namespace related {
+    interface responseItem extends RelationItem {
+      anime: null
+      manga: index.responseItem
+    }
+
+    type response = responseItem[]
   }
 }
