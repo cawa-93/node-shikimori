@@ -1,4 +1,5 @@
 import { animes } from '../animes'
+import { mangas } from '../mangas'
 
 export declare interface PaginatedRequest {
   page?: number,
@@ -31,6 +32,5 @@ export declare interface RelationItem {
   relation: string
   relation_russian: string
   anime: animes.index.responseItem | null
-  // Uncomment when mangas interface will be
-  // manga: mangas.index.responseItem | null
+  manga: mangas.index.responseItem | null
 }
