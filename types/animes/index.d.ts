@@ -155,6 +155,7 @@ export declare namespace animes {
   }
 
 
+  /** @see https://shikimori.org/api/doc/1.0/animes/screenshots */
   namespace screenshots {
     interface responseItem {
       original: string
@@ -162,6 +163,41 @@ export declare namespace animes {
     }
 
     type response = responseItem[]
+  }
+
+
+
+  /** @see https://shikimori.org/api/doc/1.0/animes/franchise */
+  namespace franchise {
+    namespace index {
+      interface link {
+        source_id: number,
+        target_id: number,
+        source: number,
+        target: number,
+        weight: number,
+        relation: string
+      }
+
+      interface node {
+        id: number,
+        date: number,
+        name: string,
+        image_url: string,
+        url: string,
+        year: number | null,
+        kind: string,
+        weight: number
+      }
+
+      interface responseItem {
+        links: link[]
+        nodes: node[]
+        current_id: number
+      }
+
+      type response = responseItem[]
+    }
   }
 
 }
