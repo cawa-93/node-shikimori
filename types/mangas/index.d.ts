@@ -1,11 +1,16 @@
-import { PaginatedRequest, Poster, MangaGenre, RelationItem } from "../common"
+import { PaginatedRequest, Poster, RelationItem } from "../common"
 import { user_rates } from "../user_rates"
 import { publishers } from "../publishers"
 import { characters } from "../characters"
 import { people } from "../people"
 import { constants } from "../constants"
+import { genres } from "../genres"
 
 export declare namespace mangas {
+
+  interface MangaGenre extends genres.index.responseItem {
+    kind: 'manga'
+  }
 
   /** @see https://shikimori.org/api/doc/1.0/mangas/index */
   namespace index {

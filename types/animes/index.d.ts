@@ -1,12 +1,17 @@
-import { PaginatedRequest, Poster, AnimeGenre, RelationItem } from '../common'
+import { PaginatedRequest, Poster, RelationItem } from '../common'
 import { studios } from '../studios'
 import { user_rates } from '../user_rates'
 import { characters } from '../characters'
 import { people } from '../people'
 import { videos } from '../videos'
 import { constants } from '../constants'
+import { genres } from '../genres'
 
 export declare namespace animes {
+
+  interface AnimeGenre extends genres.index.responseItem {
+    kind: 'anime'
+  }
 
   /** 
    * GET /animes
@@ -37,7 +42,7 @@ export declare namespace animes {
       score?: number
       duration?: duration
       rating?: rating
-      genre?: number[]
+      genre?: Array<AnimeGenre["id"]>
       studio?: number[]
       franchise?: number[]
       censored?: boolean

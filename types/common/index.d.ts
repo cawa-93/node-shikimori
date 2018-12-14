@@ -13,21 +13,6 @@ export declare interface Poster {
   x48: string
 }
 
-export declare interface Genre {
-  id: number,
-  name: string,
-  russian: string,
-  kind: 'anime' | 'manga'
-}
-
-export declare interface AnimeGenre extends Genre {
-  kind: 'anime'
-}
-
-export declare interface MangaGenre extends Genre {
-  kind: 'manga'
-}
-
 export declare interface RelationItem {
   relation: string
   relation_russian: string
