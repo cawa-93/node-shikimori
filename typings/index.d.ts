@@ -1,0 +1,13 @@
+export { animes } from './animes'
+export { appear } from './appear'
+export { characters } from './characters'
+import * as common  from './common' 
+ export { common }
+export { constants } from './constants'
+export { genres } from './genres'
+export { mangas } from './mangas'
+export { people } from './people'
+export { publishers } from './publishers'
+export { studios } from './studios'
+export { user_rates } from './user_rates'
+export { videos } from './videos'

@@ -3,10 +3,10 @@
   "version": "2.0.0",
   "description": "A node.js wrapper for the http://shikimori.org API",
   "main": "lib/index",
-  "types": "lib/index",
+  "typings": "lib/index",
   "scripts": {
     "start": "npm run build:live",
-    "build": "tsc -p .",
+    "build": "node ./build && tsc -p .",
     "build:live": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/index.ts"
   },
   "repository": {
