@@ -1,8 +1,7 @@
 import { PaginatedRequest } from '../common'
+import { constants } from '../constants'
 
 export declare namespace user_rates {
-
-  type status = 'planned' | 'watching' | 'rewatching' | 'completed' | 'on_hold' | 'dropped'
 
   type target_type = 'Anime' | 'Manga'
 
@@ -12,7 +11,7 @@ export declare namespace user_rates {
       user_id: number
       target_id: number
       target_type: target_type
-      status: status
+      status: constants.user_rate.status
     }
 
     type response = show.response[]
@@ -27,7 +26,7 @@ export declare namespace user_rates {
       target_id: number
       target_type: target_type
       score: number
-      status: status
+      status: constants.user_rate.status
       rewatches: number
       episodes: number
       volumes: number

@@ -3,6 +3,7 @@ import { user_rates } from "../user_rates"
 import { publishers } from "../publishers"
 import { characters } from "../characters"
 import { people } from "../people"
+import { constants } from "../constants"
 
 export declare namespace mangas {
 
@@ -11,21 +12,17 @@ export declare namespace mangas {
 
     type order = "id" | "ranked" | "kind" | "popularity" | "name" | "aired_on" | "volumes" | "chapters" | "status" | "random"
 
-    type kind = "manga" | "manhwa" | "manhua" | "novel" | "one_shot" | "doujin"
-
-    type status = 'anons' | 'ongoing' | 'released'
-
     interface request extends PaginatedRequest {
       order?: order
-      kind?: kind
-      status?: status
+      kind?: constants.manga.kind[]
+      status?: constants.manga.status
       season?: string
       score?: number
       genre?: number[]
       publisher?: number[]
       franchise?: number[]
       censored?: boolean
-      mylist?: user_rates.status
+      mylist?: constants.user_rate.status
       ids?: number[]
       exclude_ids?: number[]
       search?: string
@@ -37,8 +34,8 @@ export declare namespace mangas {
       russian: string | null
       image: Poster
       url: string
-      kind: kind
-      status: status
+      kind: constants.manga.kind
+      status: constants.manga.status
       volumes: number
       chapters: number
       aired_on: string | null

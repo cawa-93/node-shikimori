@@ -4,6 +4,7 @@ import { user_rates } from '../user_rates'
 import { characters } from '../characters'
 import { people } from '../people'
 import { videos } from '../videos'
+import { constants } from '../constants'
 
 export declare namespace animes {
 
@@ -24,27 +25,14 @@ export declare namespace animes {
       | 'status'
       | 'random'
 
-    type kind =
-      | 'tv'
-      | 'movie'
-      | 'ova'
-      | 'ona'
-      | 'special'
-      | 'music'
-      | 'tv_13'
-      | 'tv_24'
-      | 'tv_48'
-
-    type status = 'anons' | 'ongoing' | 'released'
-
     type duration = 'S' | 'D' | 'F'
 
     type rating = 'none' | 'g' | 'pg' | 'r' | 'r_plus' | 'rx'
 
     interface request extends PaginatedRequest {
       order?: order
-      kind?: kind
-      status?: status
+      kind?: constants.anime.kind[]
+      status?: constants.anime.status[]
       season?: string
       score?: number
       duration?: duration
@@ -53,7 +41,7 @@ export declare namespace animes {
       studio?: number[]
       franchise?: number[]
       censored?: boolean
-      mylist?: user_rates.status
+      mylist?: constants.user_rate.status
       ids?: number[]
       exclude_ids?: number[]
       search?: string
@@ -65,8 +53,8 @@ export declare namespace animes {
       russian: string | null
       image: Poster
       url: string
-      kind: kind
-      status: status
+      kind: constants.anime.kind
+      status: constants.anime.status
       episodes: number
       episodes_aired: number
       aired_on: string | null
