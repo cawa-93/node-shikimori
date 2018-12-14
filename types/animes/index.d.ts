@@ -3,6 +3,7 @@ import { studios } from '../studios'
 import { user_rates } from '../user_rates'
 import { characters } from '../characters'
 import { people } from '../people'
+import { videos } from '../videos'
 
 export declare namespace animes {
 
@@ -94,20 +95,6 @@ export declare namespace animes {
       value: number
     }
 
-    /**
-     * TODO: Rewrite `kind` property as Enum type
-     * kind property must be Enum. But allowed values are unknown
-     */
-    interface Video {
-      id: number
-      url: string
-      image_url: string
-      player_url: string
-      name: string
-      kind: string
-      hosting: string
-    }
-
     interface animeUserRate extends user_rates.show.response {
       target_type: 'Anime'
     }
@@ -135,7 +122,7 @@ export declare namespace animes {
       next_episode_at: string | null
       genres: AnimeGenre[]
       studios: studios.responseItem[]
-      videos: Video[]
+      videos: videos.index.response
       screenshots: screenshots.response
       user_rate: animeUserRate | null
     }
