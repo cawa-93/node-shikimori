@@ -1,5 +1,4 @@
 import axios, { AxiosInstance, AxiosRequestConfig } from "axios"
-import * as types from "../types/types"
 // import querystring from "querystring"
 
 export class Shikimori {
@@ -18,7 +17,7 @@ export class Shikimori {
   public request<T = any>(config: AxiosRequestConfig) {
     return this.axios.request<T>(config)
   }
-  public get<T = types.ResponseAnime>(url: string, config?: AxiosRequestConfig | undefined) {
+  public get<T = any>(url: string, config?: AxiosRequestConfig | undefined) {
     return this.axios.get<T>(url, config)
   }
   public delete(url: string, config?: AxiosRequestConfig | undefined) {
