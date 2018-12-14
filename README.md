@@ -1,8 +1,7 @@
 ## Example usage with types
 
 ```js
-import * as types from './'
-import { Shikimori } from '../src/Shikimori.class'
+import { Shikimori, types } from 'typescript-shikimori'
 
 const client = new Shikimori()
 
@@ -16,8 +15,7 @@ async function main () {
 ## Example usage with types alias
 
 ```js
-import * as types from './'
-import { Shikimori } from '../src/Shikimori.class'
+import { Shikimori, types } from 'typescript-shikimori'
 
 // create aliases
 import requestType = types.animes.index.request
